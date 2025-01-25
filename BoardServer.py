@@ -8,3 +8,12 @@ class BoardServer(HttpUser):
         self.client.post("/users/sign-in", json={"userId": "topojs12",
                                                  "password": "1234"})
 
+    @task
+    def view_search(self):
+        sortStatus = random.choice(["CATEGORIES", "NEWEST", "OLDEST"])
+        categoryId = random.randint(1, 10)
+        name = '테스트 게시글'.join(str(random.randint(1, 10000)))
+        headers = {'Content-Type': 'application/json'}
+        data = {"sortStatus": sortStatus,
+                "categoryId": categoryId,
+                "name": name}
