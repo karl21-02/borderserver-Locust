@@ -17,3 +17,4 @@ class BoardServer(HttpUser):
         data = {"sortStatus": sortStatus,
                 "categoryId": categoryId,
                 "name": name}
+        self.client.post("/search", headers=headers, json=data)

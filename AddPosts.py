@@ -8,7 +8,6 @@ class AddPosts(HttpUser):
         self.client.post("/users/sign-in", json={"userId": "topojs12",
                                                  "password": "1234"})
 
-
     @task
     def add_post(self):
         # 게시글 추가 요청
